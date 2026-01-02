@@ -1,0 +1,45 @@
+### A crashcourse on the files used in here so as to develop a better understanding for the readers ###
+
+1. what is a pyproject.toml file?
+
+TOML (Tom's Obvious, Minimal Language): It's a simple configuration file format (like JSON or YAML) but is easier to 
+read and write. TOML is becoming the standard for packaginf Python metadata.
+
+2. Why pyproject.toml is important?
+
+> It was introduced with PEP 518 to modernize Pyhton package building. Previously, everything was done by setup.py
+  but now pyproject.toml allows for more flexibility, better dependency management, and cleaner project configuration.
+> It cenralizes metadata about the project: project name, version, dependencies, authors etc.
+> It supports various build systems (like setuptools, poetry, etc.).
+
+3. Explaining sections of pyproject.toml:
+
+[project]: Defines the basic porject information (name, version, description, authors).
+[tools.setuptools]: Specifies that setuptools is being used to build the project.
+[tools.setuptools.dynamic]: Link the external files (like requirements.txt) to dynamically pull dependencies.
+
+4. setup.py with the advent of pyproject.toml: Some tasks previously handled by setup.py (like metadata) are
+   now managed by pyproject.toml. However, setup.py can still be used, especially is you have complex build steps.
+
+5. How do setup.py, pyproject.toml and requirements.txt work together?
+
+> pyproject.toml: It's now the central place for project metadata. Instead of defining your dependencies
+  and project information in setup.py, you can define them in pyproject.toml.
+  As we did in our project, the line [tool.setuptools.dynamic] dependencies = {file = 'requirements.txt'} links
+  your requirements.txt the TOML file, so when the project is built, the dependencies are feteched from 
+  requirements.txt
+
+> setup.py: While it's still used for custom builds and configurations, most of the basic functionality
+  (like metadata and dependencies) is being transferred to pyproject.toml. We might still keep a minimal
+  setup.py if we have custom build steps, but for most projects it is not necessary anymore with the 
+  advent of pyproject.toml.
+
+> requirements.txt: It lists all projects dependencies and their versions.
+
+When we run "pip install -r requirements.txt", it ensures that all dependencies are installed. The 
+pyproject.toml file can reference it (as we did in our project) so that package dependencies are
+pulled from there.
+
+
+----------------------------------------------------------------------------------------------------------------
+
