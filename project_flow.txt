@@ -14,10 +14,14 @@
 8. Go to "network address" and add IP address - "0.0.0.0/0" so that we can access it from anywhere.
 9. Go back to project >> "Get connection string" >> "Drivers" >> {Driver:Python, Version:3.6 or later}
   >> copy and save the connection string with you (replace password). >> Done.
-10. Create folder "notebook" >> Createf file "mongoDB_demo.ipynb" >> select kernel >> python kernel >> visa >>
-11. Kaggle Data Link : 
-12. Push your data to MongoDB database from your python notebook
-13. Go to MongoDB Atlas >> Database >> browse collection >> see your data in key value format.
+10. Create folder "notebook" >> Dataset added to notebook folder >> Create file "mongoDB_demo.ipynb" >> select kernel >> python kernel >> vehicle >>
+11. Push your data to MongoDB database from your python notebook
+12. Go to MongoDB Atlas >> Database >> browse collection >> see your data in key value format.
+
+-----------------------------------------logging, exception and notebooks----------------------------------------
+13. Write the logger file and test it on demo.py
+14. Write the exception file and test it on demo.py
+15. EDA and Feature Engineering notebook added
 
 
 
