@@ -44,32 +44,32 @@ class SimpleStorageService:
         except Exception as e:
             raise MyException(e, sys)
         
-        @staticmethod
-        def read_object(object_name: str, decode: bool = True, make_readable: bool = False) -> Union[StringIO, str]:
-            """
-            Read the specified S3 object with optional decoding and formatting.
+    @staticmethod
+    def read_object(object_name: str, decode: bool = True, make_readable: bool = False) -> Union[StringIO, str]:
+        """
+        Read the specified S3 object with optional decoding and formatting.
 
-            Args:
-                object_name (str): The S3 object name.
-                decode (bool): Whether to decode the object content as a string.
-                make_readable(bool): Whether to convert content to StringIO for DataFrame usage.
+        Args:
+            object_name (str): The S3 object name.
+            decode (bool): Whether to decode the object content as a string.
+            make_readable(bool): Whether to convert content to StringIO for DataFrame usage.
 
-            Returns:
-                Union[StringIO, str]: The content of the object, as a StringIO or decoded string.
-            """
+        Returns:
+            Union[StringIO, str]: The content of the object, as a StringIO or decoded string.
+        """
 
-            try:
-                # Read and decode the object content if decode=True
-                func = (
-                    lambda: object_name.get()["Body"].read().decode()
-                    if decode else object_name.get()["Body"].read()
-                )
-                # Conver to StringIO if make_readable=True
-                conv_func = lambda: StringIO(func()) if make_readable else func()
+        try:
+            # Read and decode the object content if decode=True
+            func = (
+                lambda: object_name.get()["Body"].read().decode()
+                if decode else object_name.get()["Body"].read()
+            )
+            # Conver to StringIO if make_readable=True
+            conv_func = lambda: StringIO(func()) if make_readable else func()
 
-                return conv_func()
-            except Exception as e:
-                raise MyException(e, sys)
+            return conv_func()
+        except Exception as e:
+            raise MyException(e, sys)
             
     def get_bucket(self, bucket_name: str) -> Bucket:
         """
@@ -83,7 +83,7 @@ class SimpleStorageService:
         """
         logging.info("Entered the get_bucket method of SimpleStorageService class.")
         try:
-            bucket = self.s3_resouce.Bucket(bucket_name)
+            bucket = self.s3_resource.Bucket(bucket_name)
             logging.info("Exited the get_bucket_method of SimpleStorageService class.")
             return bucket
         except Exception as e:
