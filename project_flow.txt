@@ -126,7 +126,7 @@
       >> To crosscheck, go back to Github and click on Runner and you will see runner state as "idle"
       >> If you do Ctrl+C on EC2 server then runner will shut then restart with "./run.sh"
 
-29. Setup your Githu secrets : (Githu project > Settings > SecretandVariable > Actions > NewRepoSecret)
+29. Setup your Github secrets : (Github project > Settings > SecretandVariable > Actions > NewRepoSecret)
       AWS_ACCESS_KEY_ID
       AWS_SECRET_ACCESS_KEY
       AWS_DEFAULT_REGION
